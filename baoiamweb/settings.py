@@ -98,17 +98,21 @@ WSGI_APPLICATION = 'baoiamweb.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'mysql.connector.django',
+    #     'NAME':  os.environ.get('DB_NAME'),
+    #     'USER':  os.environ.get('DB_USER'),
+    #     'PASSWORD':  os.environ.get('DB_PASSWORD'),
+    #     'HOST':  os.environ.get('DB_HOST'),
+    #     'PORT':  os.environ.get('DB_PORT'),
+    #     'OPTIONS': {
+    #         'init_command': "SET sql_mode='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION'",
+    #     },
+    # },
     'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME':  os.environ.get('DB_NAME'),
-        'USER':  os.environ.get('DB_USER'),
-        'PASSWORD':  os.environ.get('DB_PASSWORD'),
-        'HOST':  os.environ.get('DB_HOST'),
-        'PORT':  os.environ.get('DB_PORT'),
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION'",
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  
+    }
    
 }
 
@@ -219,7 +223,7 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 # this needs to be backend form which panel is being accessed
-SESSION_COOKIE_DOMAIN = os.environ.get('BACKEND_DOMAIN')
+# SESSION_COOKIE_DOMAIN = os.environ.get('BACKEND_DOMAIN')
 SESSION_COOKIE_SECURE = False
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_HEADERS = ["Authorization", "Content-Type", "Accept"]
