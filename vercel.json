@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
     {
-      "src": "baoiam/wsgi.py",
+      "src": "baoiamweb/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "runtime": "python3.9"
@@ -17,7 +17,7 @@
       },
       {
         "src": "(.*)",
-        "dest": "baoiam/wsgi.py"
+        "dest": "baoiamweb/wsgi.py"
       }
     ]
   }
